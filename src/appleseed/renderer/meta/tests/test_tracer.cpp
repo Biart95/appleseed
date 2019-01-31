@@ -523,6 +523,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& shading_point =
             m_tracer.trace_full(
                 m_shading_context,
+                m_sampling_context,
                 ray,
                 transmission);
 
@@ -542,6 +543,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
             0);
         m_tracer.trace_simple(
             m_shading_context,
+            m_sampling_context,
             ray,
             transmission);
 
@@ -554,6 +556,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& shading_point =
             m_tracer.trace_between_full(
                 m_shading_context,
+                m_sampling_context,
                 Vector3d(0.0, 0.0, 0.0),
                 Vector3d(5.0, 0.0, 0.0),
                 ShadingRay::Time(),
@@ -571,6 +574,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         Spectrum transmission;
         m_tracer.trace_between_simple(
             m_shading_context,
+            m_sampling_context,
             Vector3d(0.0, 0.0, 0.0),
             Vector3d(5.0, 0.0, 0.0),
             ShadingRay::Time(),
@@ -682,6 +686,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& shading_point =
             m_tracer.trace_full(
                 m_shading_context,
+                m_sampling_context,
                 ray,
                 transmission);
 
@@ -700,6 +705,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
             0);
         m_tracer.trace_simple(
             m_shading_context,
+            m_sampling_context,
             ray,
             transmission);
 
@@ -712,6 +718,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& shading_point =
             m_tracer.trace_between_full(
                 m_shading_context,
+                m_sampling_context,
                 Vector3d(0.0, 0.0, 0.0),
                 Vector3d(5.0, 0.0, 0.0),
                 ShadingRay::Time(),
@@ -728,6 +735,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         Spectrum transmission;
         m_tracer.trace_between_simple(
             m_shading_context,
+            m_sampling_context,
             Vector3d(0.0, 0.0, 0.0),
             Vector3d(5.0, 0.0, 0.0),
             ShadingRay::Time(),
@@ -876,6 +884,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& shading_point =
             m_tracer.trace_full(
                 m_shading_context,
+                m_sampling_context,
                 ray,
                 transmission);
 
@@ -895,6 +904,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
             0);
         m_tracer.trace_simple(
             m_shading_context,
+            m_sampling_context,
             ray,
             transmission);
 
@@ -907,6 +917,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& shading_point =
             m_tracer.trace_between_full(
                 m_shading_context,
+                m_sampling_context,
                 Vector3d(0.0, 0.0, 0.0),
                 Vector3d(5.0, 0.0, 0.0),
                 ShadingRay::Time(),
@@ -924,6 +935,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         Spectrum transmission;
         m_tracer.trace_between_simple(
             m_shading_context,
+            m_sampling_context,
             Vector3d(0.0, 0.0, 0.0),
             Vector3d(5.0, 0.0, 0.0),
             ShadingRay::Time(),
@@ -940,6 +952,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& shading_point =
             m_tracer.trace_between_full(
                 m_shading_context,
+                m_sampling_context,
                 Vector3d(0.0, 0.0, 0.0),
                 Vector3d(4.0, 0.0, 0.0),
                 ShadingRay::Time(),
@@ -956,6 +969,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         Spectrum transmission;
         m_tracer.trace_between_simple(
             m_shading_context,
+            m_sampling_context,
             Vector3d(0.0, 0.0, 0.0),
             Vector3d(4.0, 0.0, 0.0),
             ShadingRay::Time(),
@@ -1027,6 +1041,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& parent_shading_point =
             m_tracer.trace_full(
                 m_shading_context,
+                m_sampling_context,
                 ray,
                 parent_transmission);
 
@@ -1036,6 +1051,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         Spectrum transmission;
         m_tracer.trace_between_simple(
             m_shading_context,
+            m_sampling_context,
             parent_shading_point,
             Vector3d(4.0, 0.0, 0.0),
             VisibilityFlags::ShadowRay,
@@ -1107,6 +1123,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         const ShadingPoint& parent_shading_point =
             m_tracer.trace_full(
                 m_shading_context,
+                m_sampling_context,
                 ray,
                 parent_transmission);
 
@@ -1116,6 +1133,7 @@ TEST_SUITE(Renderer_Kernel_Lighting_Tracer)
         Spectrum transmission;
         m_tracer.trace_between_simple(
             m_shading_context,
+            m_sampling_context,
             parent_shading_point,
             Vector3d(2.0, 0.0, 0.0),
             VisibilityFlags::ShadowRay,
