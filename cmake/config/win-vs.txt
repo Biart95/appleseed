@@ -78,6 +78,12 @@ if (NOT USE_STATIC_EXR)
         OPENEXR_DLL                         # We need to set this pre-processor for OpenEXR to link correctly when the lib is dynamic
     )
 endif ()
+if (USE_STATIC_OPENVDB)
+    set (preprocessor_definitions_common
+        ${preprocessor_definitions_common}
+        OPENVDB_STATICLIB
+	)
+endif()
 
 # Release configuration.
 set (preprocessor_definitions_release
@@ -397,6 +403,31 @@ macro (link_against_embree target)
     endif ()
 endmacro ()
 
+macro (link_against_openvdb target)
+    if (USE_EXTERNAL_OPENVDB)
+        target_link_libraries (${target} ${OPENVDB_LIBRARIES})
+    else ()
+        target_link_libraries (${target}
+            debug       ${APPLESEED_DEPS_STAGE_DIR}/c-blosc-debug/lib/libblosc.lib
+            debug       ${APPLESEED_DEPS_STAGE_DIR}/openvdb-debug/lib/libopenvdb.lib
+            optimized   ${APPLESEED_DEPS_STAGE_DIR}/c-blosc-release/lib/libblosc.lib
+            optimized   ${APPLESEED_DEPS_STAGE_DIR}/openvdb-release/lib/libopenvdb.lib
+        )
+    endif ()
+endmacro ()
+
+macro (link_against_tbb target)
+    if (USE_EXTERNAL_TBB)
+        target_link_libraries (${target} ${TBB_LIBRARIES})
+    else ()
+        target_link_libraries (${target}
+            debug       ${APPLESEED_DEPS_STAGE_DIR}/tbb-debug/lib/tbb_debug.lib
+            debug       ${APPLESEED_DEPS_STAGE_DIR}/tbb-debug/lib/tbbmalloc_debug.lib
+            optimized   ${APPLESEED_DEPS_STAGE_DIR}/tbb-release/lib/tbb.lib
+            optimized   ${APPLESEED_DEPS_STAGE_DIR}/tbb-release/lib/tbbmalloc.lib
+        )
+    endif ()
+endmacro ()
 
 #--------------------------------------------------------------------------------------------------
 # Copy a target binary to the sandbox.

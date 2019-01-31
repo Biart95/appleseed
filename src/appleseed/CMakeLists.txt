@@ -2145,6 +2145,8 @@ link_against_zlib (appleseed)
 
 link_against_oiio (appleseed)
 link_against_osl (appleseed)
+link_against_openvdb (appleseed)
+link_against_tbb (appleseed)
 
 if (WITH_EMBREE)
     link_against_embree (appleseed)
