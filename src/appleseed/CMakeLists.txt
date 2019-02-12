@@ -327,6 +327,7 @@ set (foundation_math_sources
     foundation/math/mis.h
     foundation/math/noise.cpp
     foundation/math/noise.h
+    foundation/math/octree.h
     foundation/math/ordering.cpp
     foundation/math/ordering.h
     foundation/math/permutation.cpp
@@ -496,6 +497,7 @@ set (foundation_meta_tests_sources
     foundation/meta/tests/test_noise.cpp
     foundation/meta/tests/test_objmeshfilereader.cpp
     foundation/meta/tests/test_objmeshfilewriter.cpp
+    foundation/meta/tests/test_octree.cpp
     foundation/meta/tests/test_otherwise.cpp
     foundation/meta/tests/test_path.cpp
     foundation/meta/tests/test_permutation.cpp

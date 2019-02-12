@@ -826,6 +826,17 @@ inline bool is_normalized(const Vector<T, N>& v, const T eps)
 }
 
 template <typename T, size_t N>
+inline bool is_saturated(const Vector<T, N>& v)
+{
+    for (size_t i = 0; i < N; ++i)
+    {
+        if (v[i] < T(0.0) || v[i] > T(1.0))
+            return false;
+    }
+    return true;
+}
+
+template <typename T, size_t N>
 inline Vector<T, N> faceforward(
     const Vector<T, N>& n,
     const Vector<T, N>& i)
